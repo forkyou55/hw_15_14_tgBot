@@ -10,12 +10,10 @@ import static com.demoqa.tests.TestFakerData.*;
 public class PracticeWithFakerForm extends com.demoqa.tests.TestFakerBase {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
+
+    @Feature("Заполнение регистрационной формы")
+    @Story("Заполнение формы с фейковыми данными")
     @Test
-    @Feature("Practice form test")
-    @Story("Form testing")
-    @Owner("Ucsus")
-    @Severity(SeverityLevel.BLOCKER)
-    @Link(value = "Jenkins", url = "https://jenkins.autotests.cloud/job/simple_test_jenkins/")
     @DisplayName("Полное заполнение регистрационной формы c Faker")
      void fillTestes() {
         practiceFormPage.openPage()
