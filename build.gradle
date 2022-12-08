@@ -7,11 +7,11 @@ repositories {
     mavenCentral()
 }
 
-def slf4jVersion = '2.0.3',
+def slf4jVersion = '2.0.5',
     junitVersion = "5.9.0",
-    selenideVersion = '6.8.1',
+    selenideVersion = '6.10.1',
     fakerVersion = "1.0.2",
-    allureVersion = "2.19.0"
+    allureVersion = '2.20.0'
 
 allure {
     report {
@@ -43,9 +43,9 @@ dependencies {
     )
 }
 
-test {
-    useJUnitPlatform()
+tasks.withType(Test) {
     systemProperties(System.getProperties())
+    useJUnitPlatform()
 
     testLogging {
         lifecycle {
@@ -57,4 +57,25 @@ test {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+test {
+    useJUnitPlatform()
+}
+
+task property_test(type: Test){
+    useJUnitPlatform{
+        includeTags("property_test")
+    }
+}
+
+task many_properties_test(type: Test){
+    useJUnitPlatform{
+        includeTags("many_properties_test")
+    }
+}
+
+task hello(type: Test){
+    useJUnitPlatform{
+        includeTags("hello")
+    }
 }
