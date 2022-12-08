@@ -18,10 +18,18 @@ public class TestFakerBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
-        Configuration.browser = "chrome";
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        String remoteBrowser = System.getProperty("remoteBrowser");
+
+        if (remoteBrowser != null) {
+            Configuration.remote = remoteBrowser;}
+
+//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @AfterEach
