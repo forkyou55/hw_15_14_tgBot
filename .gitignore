@@ -42,4 +42,4 @@ target/
 /gradlew.bat
 /notifications/draft.txt
 /notifications/telegram.json
-/allure-report/
+/allure-report/widgets/summary.json
