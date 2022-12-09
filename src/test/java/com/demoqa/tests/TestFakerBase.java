@@ -29,7 +29,7 @@ public class TestFakerBase {
         if (remoteBrowser != null) {
             Configuration.remote = remoteBrowser;}
 
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
     }
 
     @AfterEach
